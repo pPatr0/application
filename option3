@@ -8,3 +8,11 @@ const editTodo = (id: number): void => {
     }
   }
 };
+
+
+const addEditButtonListener = (li: HTMLLIElement, id: number): void => {
+    const editButton = li.querySelector('.edit-btn');
+    editButton?.addEventListener('click', () => editTodo(id));
+  };
+
+  addEditButtonListener(li, todo.id);

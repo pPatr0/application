@@ -17,7 +17,7 @@ const todoForm = document.querySelector('.todo-form') as HTMLFormElement;
 const todoList = document.getElementById('todo-list') as HTMLUListElement;
 const errorMessage = document.getElementById('error-message') as HTMLParagraphElement;
 const toggleAllButton = document.getElementById('toggle-all') as HTMLButtonElement;
-const clearCompletedButton = document.getElementById('clear-completed') as HTMLButtonElement;
+
 const todoActions = document.getElementById('todo-actions') as HTMLDivElement;
 
 // Function to add a new todo
@@ -46,7 +46,7 @@ const renderTodos = (): void => {
       <button class="edit-btn">Edit</button>
     `;
     addRemoveButtonListener(li, todo.id);
-    addEditButtonListener(li, todo.id);
+    
     addToggleButtonListener(li, todo.id);
     todoList.appendChild(li);
   });
@@ -86,10 +86,7 @@ export const removeTodo = (id: number): void => {
 };
 
 // Function to add event listener to the edit button
-const addEditButtonListener = (li: HTMLLIElement, id: number): void => {
-  const editButton = li.querySelector('.edit-btn');
-  editButton?.addEventListener('click', () => editTodo(id));
-};
+
 
 // Function to edit a todo
 
