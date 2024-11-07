@@ -46,8 +46,7 @@ const renderTodos = (): void => {
       <button class="edit-btn">Edit</button>
     `;
     addRemoveButtonListener(li, todo.id);
-    
-    addToggleButtonListener(li, todo.id);
+    addEditButtonListener(li, todo.id);
     todoList.appendChild(li);
   });
 };
@@ -86,25 +85,28 @@ export const removeTodo = (id: number): void => {
 };
 
 // Function to add event listener to the edit button
-
-
-// Function to edit a todo
-
-
-// Function to add event listener to the checkbox
-const addToggleButtonListener = (li: HTMLLIElement, id: number): void => {
-  const checkbox = li.querySelector('.toggle-checkbox') as HTMLInputElement;
-  checkbox?.addEventListener('change', () => toggleTodoCompletion(id));
-};
-
-// Function to toggle the completed status of a todo item
-const toggleTodoCompletion = (id: number): void => {
+const editTodo = (id: number): void => {
   const todo = todos.find(todo => todo.id === id);
   if (todo) {
-    todo.completed = !todo.completed;
-    renderTodos();
+    const text = prompt('Edit todo', todo.text);
+    if (text) {
+      todo.text = text;
+      renderTodos();
+    }
   }
 };
+
+// Function to edit a todo
+const addEditButtonListener = (li: HTMLLIElement, id: number): void => {
+  const editButton = li.querySelector('.edit-btn');
+  editButton?.addEventListener('click', () => editTodo(id));
+};
+
+// Function to add event listener to the checkbox
+
+
+// Function to toggle the completed status of a todo item
+
 
 // Function to toggle all todos between completed and not completed
 const toggleAllTodos = (): void => {

@@ -1,18 +1,5 @@
-const editTodo = (id: number): void => {
-  const todo = todos.find(todo => todo.id === id);
-  if (todo) {
-    const text = prompt('Edit todo', todo.text);
-    if (text) {
-      todo.text = text;
-      renderTodos();
-    }
-  }
-};
 
 
-const addEditButtonListener = (li: HTMLLIElement, id: number): void => {
-    const editButton = li.querySelector('.edit-btn');
-    editButton?.addEventListener('click', () => editTodo(id));
-  };
 
-  addEditButtonListener(li, todo.id);
+
+
