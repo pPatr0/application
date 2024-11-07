@@ -1,10 +1,5 @@
-clearCompletedButton.addEventListener('click', () => clearCompletedTodos());
-
-const clearCompletedTodos = (): void => {
-    todos = todos.filter(todo => !todo.completed);
-    renderTodos();
-    updateActionButtonsVisibility(); // Hide buttons if no todos remain
-  };
 
 
-  const clearCompletedButton = document.getElementById('clear-completed') as HTMLButtonElement;
+
+
+  

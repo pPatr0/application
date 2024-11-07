@@ -17,7 +17,7 @@ const todoForm = document.querySelector('.todo-form') as HTMLFormElement;
 const todoList = document.getElementById('todo-list') as HTMLUListElement;
 const errorMessage = document.getElementById('error-message') as HTMLParagraphElement;
 const toggleAllButton = document.getElementById('toggle-all') as HTMLButtonElement;
-
+const clearCompletedButton = document.getElementById('clear-completed') as HTMLButtonElement;
 const todoActions = document.getElementById('todo-actions') as HTMLDivElement;
 
 // Function to add a new todo
@@ -114,7 +114,11 @@ const toggleAllTodos = (): void => {
 };
 
 // Function to clear all completed todos
-
+const clearCompletedTodos = (): void => {
+  todos = todos.filter(todo => !todo.completed);
+  renderTodos();
+  updateActionButtonsVisibility(); // Hide buttons if no todos remain
+};
 
 // Function to update the visibility of the action buttons based on todos count
 const updateActionButtonsVisibility = (): void => {
@@ -126,6 +130,7 @@ const updateActionButtonsVisibility = (): void => {
 };
 
 // Event listeners for the Toggle All and Clear Completed buttons
+clearCompletedButton.addEventListener('click', () => clearCompletedTodos());
 toggleAllButton.addEventListener('click', () => toggleAllTodos());
 
 
