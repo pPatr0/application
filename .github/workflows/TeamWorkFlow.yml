@@ -36,13 +36,13 @@ jobs:
         run:  apt-get update
 
       - name: Install Chromium
-        run: apt-get install -y chrome
+        run: apt-get install -y edge & apt-get install -y chromium
 
       - name: browsers
         run: testcafe --list-browsers
 
       - name: Run tests
-        run: testcafe "chrome:headless" test-todo.js #vlastni testcafčo test src/todo-tests.js
+        run: testcafe "chromium:headless" test-todo.js #vlastni testcafčo test src/todo-tests.js
         
 
       - name: Store artifacts
