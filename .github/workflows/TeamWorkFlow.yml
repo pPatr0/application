@@ -36,7 +36,7 @@ jobs:
         run:  apt-get update
 
       - name: Install Chromium
-        run: apt-get install -y microsoft-edge-stable & apt-get install -y chromium
+        run: apt-get install -y chromium
 
       - name: browsers
         run: testcafe --list-browsers
