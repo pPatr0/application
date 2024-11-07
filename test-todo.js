@@ -27,7 +27,6 @@ test("completed-todo", async t =>{
         .click(Selector("#todo-list > li:nth-child(3) > input"))
         .click(Selector("#todo-list > li:nth-child(5) > input"))
         .click(Selector("#todo-list > li:nth-child(1) > input"))
-        .click(Selector("#todo-list > li:nth-child(2) > input"))
 })
 
 
