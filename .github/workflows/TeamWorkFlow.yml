@@ -46,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: dist
-          path: application/
+          path: dist/
 
   deployment:
     needs: integration-delivery
@@ -57,7 +57,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: dist
-          path: application/
+          path: dist/
 
             
       - name: FTP deploy
