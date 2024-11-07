@@ -47,6 +47,7 @@ const renderTodos = (): void => {
     `;
     addRemoveButtonListener(li, todo.id);
     addEditButtonListener(li, todo.id);
+    addToggleButtonListener(li, todo.id);
     todoList.appendChild(li);
   });
 };
@@ -103,10 +104,19 @@ const addEditButtonListener = (li: HTMLLIElement, id: number): void => {
 };
 
 // Function to add event listener to the checkbox
-
+const addToggleButtonListener = (li: HTMLLIElement, id: number): void => {
+  const checkbox = li.querySelector('.toggle-checkbox') as HTMLInputElement;
+  checkbox?.addEventListener('change', () => toggleTodoCompletion(id));
+};
 
 // Function to toggle the completed status of a todo item
-
+const toggleTodoCompletion = (id: number): void => {
+  const todo = todos.find(todo => todo.id === id);
+  if (todo) {
+    todo.completed = !todo.completed;
+    renderTodos();
+  }
+};
 
 // Function to toggle all todos between completed and not completed
 const toggleAllTodos = (): void => {
