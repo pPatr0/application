@@ -1,0 +1,10 @@
+const editTodo = (id: number): void => {
+  const todo = todos.find(todo => todo.id === id);
+  if (todo) {
+    const text = prompt('Edit todo', todo.text);
+    if (text) {
+      todo.text = text;
+      renderTodos();
+    }
+  }
+};
