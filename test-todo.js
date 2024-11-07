@@ -30,7 +30,7 @@ test("completed-todo", async t =>{
 })
 
 
-test("Remove", async t =>{
+test("remove-all-completed-todos", async t =>{
     const inputField = Selector('#todo-input')
     const submitButton = Selector('button[type="submit"]')
 
