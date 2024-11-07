@@ -38,11 +38,8 @@ jobs:
       - name: Install Chromium
         run: apt-get install -y chromium
 
-      - name: browsers
-        run: testcafe --list-browsers
-
       - name: Run tests
-        run: testcafe "chromium:headless" test-todo.js #vlastni testcafčo test src/todo-tests.js
+        run: testcafe "chromium:headless" test-todo.js --retry-test-pages  #vlastni testcafčo test src/todo-tests.js
         
 
       - name: Store artifacts
