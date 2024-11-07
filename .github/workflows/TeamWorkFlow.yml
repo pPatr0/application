@@ -28,7 +28,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: test/todo/ # test.sevcik2024.dk/todo/
-          local-dir: ./application/dist/
+          local-dir: ./application
 
       - name: Install Testcafe
         run: npm install -g testcafe
@@ -46,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: dist
-          path: application/dist/
+          path: application
 
   deployment:
     needs: integration-delivery
@@ -57,7 +57,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: dist
-          path: application/dist/
+          path: application
 
             
       - name: FTP deploy
@@ -67,4 +67,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: live/todo/ # live.sevcik2024.dk/todo/
-          local-dir: ./application/dist/
+          local-dir: ./application
