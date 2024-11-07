@@ -27,12 +27,11 @@ jobs:
           server: ${{ vars.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: test/todo/ 
+          server-dir: test/todo/ # test.sevcik2024.dk/todo/
           local-dir: ./application/dist/
 
       - name: Install Testcafe
         run: npm install -g testcafe
-
       - name: Update APT
         run:  apt-get update
 
@@ -67,5 +66,5 @@ jobs:
           server: ${{ vars.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: live/todo/
+          server-dir: live/todo/ # live.sevcik2024.dk/todo/
           local-dir: ./application/dist/
